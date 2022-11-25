@@ -9,6 +9,8 @@ const port = 3001;
 app.use(cors());
 app.use(express.json());
 
+// using routes
+app.use(require('./routes/route'));
 
 app.listen(port, () =>{
     console.log(`Server running on port: ${port}`)
