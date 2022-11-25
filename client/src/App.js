@@ -1,4 +1,9 @@
 import './App.css';
+import Graph from './components/Graph';
+// import Form from './components/Form';
+
+
+
 
 function App() {
   return (
@@ -9,8 +14,11 @@ function App() {
         {/* Grid columns */}
         <div className='grid md:grid-cols-2 gap-4'>
           {/* Charts */}
-          
+          <Graph></Graph>
+          {/* Form */}
+          {/* <Form></Form> */}
         </div>
+        <p>Can put stuff here</p>
       </div>
     </div>
   );
