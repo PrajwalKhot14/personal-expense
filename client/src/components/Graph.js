@@ -30,6 +30,8 @@ export default function Graph(){
             <div className="item">
                 <div className="chart relative">
                     <Doughnut {...config}></Doughnut>
+                    {/* <Bar {...config}></Bar> */}
+
                     <h3 className="mb-4 font-bold title">Total
                         <span className="block text-3xl text-emerald-400">${0}</span>
                     </h3>
