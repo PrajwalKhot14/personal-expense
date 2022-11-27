@@ -21,9 +21,15 @@ export default function Form(){
                         <option value="Savings">Savings</option>
                         <option value="Expenses">Expenses</option>
                     </select>
+                    
                     <div className="input-group">
                         <input type="text" {...register('amount')} placeholder="Amount" className ="form-input"></input>
                     </div>
+                    
+                    <div className="input-group">
+                        <input type="date" {...register('date')} id="start" className ="form-input" name="trip-start" min="2022-01-01" max="2022-12-31"></input>
+                    </div>
+
                     <div className="submit-btn">
                         <button className="border-py-2 text-white bg-indigo-500 w-full">Make Transaction</button>
                     </div>
