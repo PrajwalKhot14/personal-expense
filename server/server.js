@@ -1,8 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 
+require('dotenv').config({path:"./config.env"})
+
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 
 // Middlewares
