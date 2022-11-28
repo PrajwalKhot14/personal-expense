@@ -13,4 +13,8 @@ routes.route('/api/transaction')
 routes.route('/api/labels')
 .get(controller.get_Lables);
 
+routes.route('/api/bank')
+.get(controller.get_Bank)
+.post(controller.create_Bank);
+
 module.exports = routes;

@@ -71,6 +71,7 @@ async function delete_Transaction(req, res){
     }).clone().catch(function(err){res.json("Error while deleting Transaction")})
 }
 
+// Aggregate 
 async function get_Lables(req, res){
     model.Transaction.aggregate([
         {
@@ -92,12 +93,40 @@ async function get_Lables(req, res){
     })
 }
 
+// GET http://localhost:8080/api/bank
+async function get_Bank(req, res){
+    let data = await model.Bank.find({})
+    let filter = await data.map(v => Object.assign({}, {name: v.name, amount: v.amount, date: v.date}));
+    return res.json(filter);
+}
+
+
+//POST: http://localhost:8080/api/bank
+async function create_Bank(req, res){
+    if(!req.body)return res.status(400).json("POST HTTP Data not provided");
+    let{name, amount} = req.body;
+
+    const create = await new model.Bank({
+        name,
+        amount,
+        date: new Date()
+    });
+
+    create.save(function(err){
+        if(!err) return res.json(create);
+        return res.status(400).json({message: `Error while adding amount ${err}`})
+    });
+}
+
+
 module.exports = {
     create_Categories,
     get_Categories,
     create_Transaction,
     get_Transaction,
     delete_Transaction,
-    get_Lables
+    get_Lables,
+    get_Bank,
+    create_Bank
 }
 

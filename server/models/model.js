@@ -13,14 +13,23 @@ const transaction_model = new Schema({
     name: {type: String, default: "Anonymous"},
     type: {type: String, default: "Investment"},
     amount: {type: Number},
-    date: {"type": Date, default: Date.now}
+    date: {type: Date, default: Date.now}
+})
+
+// Bank => field => ['name', 'amount', 'date']
+const bank_model = new Schema({
+    name: {type: String, default: "Anonymous"},
+    amount: {type: Number},
+    date: {type: Date, default: Date.now}
 })
 
 const Categories = mongoose.model('categories', categories_model)
 const Transaction = mongoose.model('transaction', transaction_model)
+const Bank = mongoose.model('bank', bank_model)
 
 exports.default = Transaction;
 module.exports = {
     Categories,
-    Transaction
+    Transaction,
+    Bank
 }
