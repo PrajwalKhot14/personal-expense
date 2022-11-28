@@ -71,12 +71,33 @@ async function delete_Transaction(req, res){
     }).clone().catch(function(err){res.json("Error while deleting Transaction")})
 }
 
+async function get_Lables(req, res){
+    model.Transaction.aggregate([
+        {
+            $lookup : {
+                from: "categories",
+                localField: 'type',
+                foreignField: "type",
+                as: "categories_info"
+            }
+        },
+        {
+            $unwind: "$categories_info"
+        }
+    ]).then(result =>{
+        let data = result.map(v=>Object.assign({}, {_id: v._id, name: v.name, type: v.type, amount: v.amount, date: v.date, color: v.categories_info['color']}));
+        res.json(data);
+    }).catch(error=>{
+        res.status(400).json("Lookup Collection Error");
+    })
+}
 
 module.exports = {
     create_Categories,
     get_Categories,
     create_Transaction,
     get_Transaction,
-    delete_Transaction
+    delete_Transaction,
+    get_Lables
 }
 

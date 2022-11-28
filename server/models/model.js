@@ -13,7 +13,7 @@ const transaction_model = new Schema({
     name: {type: String, default: "Anonymous"},
     type: {type: String, default: "Investment"},
     amount: {type: Number},
-    date: {type: Date, default: Date.now}
+    date: {"type": Date, default: Date.now}
 })
 
 const Categories = mongoose.model('categories', categories_model)
