@@ -59,14 +59,24 @@ async function create_Transaction(req, res){
 //GET: http://localhost:8080/api/transaction
 async function get_Transaction(req, res){
     let data = await model.Transaction.find({})
-    let filter = await data.map(v => Object.assign({}, {name: v.name, type: v.type, amount: v.amount, date: v.date}));
+    let filter = await data.map(v => Object.assign({}, {id: v._id, name: v.name, type: v.type, amount: v.amount, date: v.date}));
     return res.json(filter);
 }
+
+// DELETE: http://localhost:8080/api/transaction
+async function delete_Transaction(req, res){
+    if(!req.body) res.status(400).json({message: "Request Body not Found"});
+    await model.Transaction.deleteOne(req.body, function(err){
+        if(!err) res.json("Record Deleted!");
+    }).clone().catch(function(err){res.json("Error while deleting Transaction")})
+}
+
 
 module.exports = {
     create_Categories,
     get_Categories,
     create_Transaction,
-    get_Transaction
+    get_Transaction,
+    delete_Transaction
 }
 
