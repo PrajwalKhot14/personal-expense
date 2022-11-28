@@ -1,6 +1,8 @@
 import './App.css';
 import Graph from './components/Graph';
 import Form from './components/Form';
+import Linefunc from './components/LineChart';
+import List from './components/List';
 
 
 
@@ -15,8 +17,10 @@ function App() {
         <div className='grid md:grid-cols-2 gap-4'>
           {/* Charts */}
           <Graph></Graph>
+          <Linefunc></Linefunc>
           {/* Form */}
           <Form></Form>
+          <List></List>
         </div>
         <p>Can put stuff here</p>
       </div>

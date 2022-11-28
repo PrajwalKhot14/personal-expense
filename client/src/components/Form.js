@@ -36,7 +36,7 @@ export default function Form(){
                 </div>
             </form>
 
-            <List></List>
+            {/* <List></List> */}
         </div>
     )
 }
