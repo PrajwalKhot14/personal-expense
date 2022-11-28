@@ -2,7 +2,7 @@ import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import {Chart, ArcElement} from 'chart.js';
 import Labels from './Labels'
-import Linefunc from './LineChart';
+// import Linefunc from './LineChart';
 
 Chart.register(ArcElement);
 
