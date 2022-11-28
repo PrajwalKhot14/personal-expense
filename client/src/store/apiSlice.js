@@ -8,30 +8,39 @@ export const apiSlice = createApi({
         // GET categories
         getCategories: builder.query({
             //GET: 'http://localhost:8080/api/categories'
-            query:()=>'/api/categories'
+            query:()=>'/api/categories',
+            providesTags:['categories']
         }),
+        
         // GET labels
         getLabels: builder.query({
             //GET: 'http://localhost:8080/api/labels'
-            query:() => '/api/labels'
+            query:() => '/api/labels',
+            providesTags:['transactions']
         }),
+
         // add new Transaction
         addTransaction:builder.mutation({
             query:(initialTransaction)=>({
+                // post: 'http://localhost:8080/api/transaction'
                 url:'/api/transaction',
                 method:"POST",
                 body:initialTransaction
-            })
+            }),
+            invalidatesTags:['transaction']
         }),
 
         //delete Record
         deleteTransaction:builder.mutation({
             query:recordId=>({
+                // delete: 'http://localhost:8080/api/transaction'
                 url:'/api/transaction',
                 method:"DELETE",
                 body:recordId
-            })
+            }),
+            invalidatesTags:['transaction']
         })
+
     })
 })
 

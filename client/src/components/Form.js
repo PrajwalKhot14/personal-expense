@@ -14,7 +14,7 @@ export default function Form(){
         await addTransaction(data).unwrap();
         resetField('name');
         resetField('amount');
-        resetField('date');
+        // resetField('date');
     }
     return (
         <div className="form max-w-sm mx-auto w-96">
