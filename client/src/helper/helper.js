@@ -29,18 +29,15 @@ export function getTotal(transaction){
     return Total;
 }
 
-export function chart_Data(transaction){
+export function chart_Data(transaction, custom){
     let dataValue = getSum(transaction)
     let bg = _.map(transaction, a=> a.color)
+    bg = _.uniq(bg)
     const config = {
         data: {
             datasets: [{
                 data: dataValue,
-                backgroundColor: [
-                    'rgb(255, 205, 86)',
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)'
-                ],
+                backgroundColor: bg,
                 hoverOffset: 4,
                 borderRadius: 30,
                 spacing: 10
@@ -50,4 +47,5 @@ export function chart_Data(transaction){
             cutout: 115
         }
     }
+    return custom ?? config;
 }

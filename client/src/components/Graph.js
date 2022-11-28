@@ -36,7 +36,7 @@ export default function Graph(){
         graphData = <div>Fetching</div>
     }
     else if(isSuccess){
-        chart_Data(data)
+        graphData = <Doughnut {...chart_Data(data)}></Doughnut>;
         // Transactions = getLabels(data, 'type').map((v, i) => <LabelComponent key={i} data = {v}></LabelComponent>)
     }
     else if(isError){
@@ -48,10 +48,8 @@ export default function Graph(){
             <div className="item">
                 <div className="chart relative">
                     
-                    <Doughnut {...config}></Doughnut>
-                    {/* <h3 className="mb-4 font-bold title">Total
-                        <span className="block text-3xl text-emerald-400">${0}</span>
-                    </h3> */}
+                    {graphData}
+                    
                     <div className="flex flex-col py-10 gap-4">
                     {/* Labels */}
                     <Labels></Labels>
