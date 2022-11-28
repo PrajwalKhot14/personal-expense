@@ -6,7 +6,8 @@ routes.route('/api/categories')
 .get(controller.get_Categories);
 
 routes.route('/api/transaction')
-.post(controller.create_Transaction);
+.post(controller.create_Transaction)
+.get(controller.get_Transaction);
 
 
 

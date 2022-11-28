@@ -1,15 +1,30 @@
 const model = require('../models/model');
 
 //POST http://localhost:8080/api/categories
-async function create_Categories(req, res){
-    const Create = new model.Categories({
-        type:"Investment",
-        color:"#797EF6",
-    })
+// async function create_Categories(req, res){
+//     const Create = new model.Categories({
+//         type:"Investment",
+//         color:"#797EF6",
+//     })
 
-    Create.save(function(err){
-        if(!err) return res.json(Create);
-        return res.status(400).json({message: `Error while creating Category ${err}`})
+//     Create.save(function(err){
+//         if(!err) return res.json(Create);
+//         return res.status(400).json({message: `Error while creating Category ${err}`})
+//     });
+// }
+
+async function create_Categories(req, res){
+    if(!req.body)return res.status(400).json("POST HTTP Data not provided");
+    let{type, color} = req.body;
+
+    const create = await new model.Categories({
+        type,
+        color
+    });
+
+    create.save(function(err){
+        if(!err) return res.json(create);
+        return res.status(400).json({message: `Error while creating transaction ${err}`})
     });
 }
 
@@ -41,10 +56,17 @@ async function create_Transaction(req, res){
     });
 }
 
+//GET: http://localhost:8080/api/transaction
+async function get_Transaction(req, res){
+    let data = await model.Transaction.find({})
+    let filter = await data.map(v => Object.assign({}, {name: v.name, type: v.type, amount: v.amount, date: v.date}));
+    return res.json(filter);
+}
 
 module.exports = {
     create_Categories,
     get_Categories,
-    create_Transaction
+    create_Transaction,
+    get_Transaction
 }
 
