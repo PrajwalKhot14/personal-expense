@@ -11,6 +11,11 @@ export const apiSlice = createApi({
             query:()=>'/api/categories',
             providesTags:['categories']
         }),
+        getBanks: builder.query({
+            //GET: 'http://localhost:8080/api/bank'
+            query:()=>'/api/bank',
+            providesTags:['bank']
+        }),
         
         // GET labels
         getLabels: builder.query({

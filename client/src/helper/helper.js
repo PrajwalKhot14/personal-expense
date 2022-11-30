@@ -85,7 +85,7 @@ export function line_Date(transaction){
 
 export function getSum_date(transaction, type){
     let sum = _(transaction)
-    .groupBy("date")
+    .groupBy("date", "type")
     .map((objs, key)=>{
         if(!type) return _.sumBy(objs, 'amount');
         return{
@@ -101,19 +101,20 @@ export function getSum_date(transaction, type){
 
 export function line_chart_Data(transaction, custom){
     let dataValue = getSum_date(transaction)
-    let bg = _.map(transaction, a=> a.color)
-    bg = _.uniq(bg)
-
     var arr = [];
 
     for (var key in transaction){
-        arr.push(transaction[key]['date'])
+        var temp = transaction[key]['date'].toString();
+        temp = temp.replace('T', ' ');
+        temp = temp.replace('Z', ' ');
+        temp = temp.substring(0, temp.indexOf('.'));
+        arr.push(temp)
     }
     const labels = arr
     const data = {
     labels: labels,
     datasets: [{
-        // label: 'My First Dataset',
+        label: 'Expense',
         data: dataValue,
         borderColor:'green',
         tension:0.4,
@@ -129,10 +130,13 @@ export function line_chart_Data(transaction, custom){
         type: 'line',
         data: data,
         options: {
+            legend: {
+                display: false
+            },
             responsive: true,
-        scales: {
-            y: {
-            beginAtZero: false
+            scales: {
+                y: {
+                beginAtZero: false
             }
         }
         },
