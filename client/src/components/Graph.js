@@ -30,6 +30,10 @@ const config = {
 export default function Graph(){
     const {data, isFetching, isSuccess, isError} = api.useGetLabelsQuery()
     let graphData;
+    // for (var key in data){
+    //     console.log(data[key]['amount'])
+    // }
+    // console.log(data)
     // const {data1, isFetching1, isSuccess1, isError1} = api.useGetLabelsQuery();
     
     if(isFetching){
@@ -52,7 +56,7 @@ export default function Graph(){
                     
                     <div className="flex flex-col py-10 gap-4">
                     {/* Labels */}
-                    <Labels></Labels>
+                    {/* <Labels></Labels> */}
                     </div>
                 </div>
                 

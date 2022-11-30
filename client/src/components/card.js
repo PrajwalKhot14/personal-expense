@@ -12,7 +12,7 @@ export default function Card(){
     }
     else if(isSuccess){
         creditTotal = getTotal(data)
-        console.log(creditTotal)
+        // console.log(creditTotal)
         // Transactions = getLabels(data, 'type').map((v, i) => <LabelComponent key={i} data = {v}></LabelComponent>)
     }
     else if(isError){

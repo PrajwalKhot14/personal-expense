@@ -4,9 +4,8 @@ import Form from './components/Form';
 import Linefunc from './components/LineChart';
 import List from './components/List';
 import Card from './components/card';
-
-
-
+import LineGraph from './components/LineGraph';
+import Labels from './components/Labels';
 
 function App() {
   return (
@@ -19,10 +18,18 @@ function App() {
         {/* Grid columns */}
         <div className='grid md:grid-cols-2 gap-4'>
           {/* Charts */}
-          <Graph></Graph>
-          <Linefunc></Linefunc>
+          
+          {/* <Linefunc></Linefunc> */}
           {/* Form */}
           <Form></Form>
+          <LineGraph></LineGraph>
+          <div>
+          <Graph></Graph>
+         
+          <Labels></Labels>
+          </div>
+          
+          
           <List></List>
         </div>
   
