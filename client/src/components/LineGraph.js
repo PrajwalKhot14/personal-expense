@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 import {Chart, ArcElement} from 'chart.js';
 import Labels from './Labels';
 // import Linefunc from './LineChart';
-import {line_chart_Data} from '../helper/helper';
+import {line_chart_Data} from '../helper/lodash_helper';
 import {default as api} from '../store/apiSlice';
 
 Chart.register(ArcElement);

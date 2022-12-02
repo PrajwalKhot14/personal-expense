@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import { Line } from 'react-chartjs-2';
 import {Chart as ChartJS, Title, Tooltip, LineElement, Legend, CategoryScale, LinearScale, PointElement, Filler} from 'chart.js';
-import {getSumByDate, line_Data, line_Date} from '../helper/helper';
+import {getSumByDate, line_Data, line_Date} from '../helper/lodash_helper';
 import {default as api} from '../store/apiSlice';
 ChartJS.register(
   Title, Tooltip, LineElement, Legend,

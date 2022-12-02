@@ -1,5 +1,5 @@
 import {default as api} from '../store/apiSlice';
-import { getTotal } from "../helper/helper";
+import { getTotal } from "../helper/lodash_helper";
 import React from "react";
 
 export default function Card(){
@@ -10,7 +10,6 @@ export default function Card(){
     var {data, isFetching, isSuccess, isError} = api.useGetBanksQuery()
     const data2 = data
     let bankTotal;
-    // const {data1, isFetching1, isSuccess1, isError1} = api.useGetLabelsQuery();
     
     if(isFetching){
         creditTotal = <div>Fetching</div>

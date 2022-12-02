@@ -1,7 +1,7 @@
 // import { I } from "chart.js/dist/chunks/helpers.core";
 import React from "react";
 import {default as api} from '../store/apiSlice';
-import { getLabels } from "../helper/helper";
+import { getLabels } from "../helper/lodash_helper";
 
 
 export default function Labels () {
