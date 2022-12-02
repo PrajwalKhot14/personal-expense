@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/personal-expense/static/css/main.8b9a926a.css",
+    "main.js": "/personal-expense/static/js/main.cd3dd419.js",
+    "index.html": "/personal-expense/index.html",
+    "main.8b9a926a.css.map": "/personal-expense/static/css/main.8b9a926a.css.map",
+    "main.cd3dd419.js.map": "/personal-expense/static/js/main.cd3dd419.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8b9a926a.css",
+    "static/js/main.cd3dd419.js"
+  ]
+}
